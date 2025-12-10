@@ -4,35 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buidlers Bolivia - Comunidad Web3</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        .perspective-1000 { perspective: 1000px; }
-        .preserve-3d { transform-style: preserve-3d; }
-        body { background-color: black; color: white; }
-        
-        /* Animación de Flote Suave */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
-        
-        /* Gradientes personalizados para botones */
-        .glass-btn {
-            background: rgba(23, 23, 23, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        .glass-btn:hover {
-            background: rgba(40, 40, 40, 0.8);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="min-h-screen font-sans overflow-x-hidden selection:bg-green-500 selection:text-black pb-10">
 
@@ -92,27 +67,22 @@
 
         <h3 class="text-neutral-500 text-xs font-bold tracking-widest uppercase mt-4">Síguenos en redes</h3>
         <div class="grid grid-cols-3 md:grid-cols-5 gap-3 w-full">
-            
             <a href="https://x.com/Buidlersbo" target="_blank" class="glass-btn flex flex-col items-center justify-center p-4 rounded-xl gap-2 hover:border-white/40">
                 <i data-lucide="twitter" class="w-6 h-6"></i>
-                <span class="text-xs">Twitter / X</span>
+                <span class="text-xs">Twitter</span>
             </a>
-
             <a href="https://www.linkedin.com/company/buidl%E1%BA%BDrs-bolivia/about/?viewAsMember=true" target="_blank" class="glass-btn flex flex-col items-center justify-center p-4 rounded-xl gap-2 hover:border-blue-500/50">
                 <i data-lucide="linkedin" class="w-6 h-6"></i>
                 <span class="text-xs">LinkedIn</span>
             </a>
-
             <a href="https://www.instagram.com/buidlersbo/" target="_blank" class="glass-btn flex flex-col items-center justify-center p-4 rounded-xl gap-2 hover:border-pink-500/50">
                 <i data-lucide="instagram" class="w-6 h-6"></i>
                 <span class="text-xs">Instagram</span>
             </a>
-
             <a href="https://www.facebook.com/BuidlersBolivia/" target="_blank" class="glass-btn flex flex-col items-center justify-center p-4 rounded-xl gap-2 hover:border-blue-700/50">
                 <i data-lucide="facebook" class="w-6 h-6"></i>
                 <span class="text-xs">Facebook</span>
             </a>
-
             <a href="https://www.tiktok.com/@buidlersbo?_t=zm-8u4mnwzmm9e&_r=1" target="_blank" class="glass-btn flex flex-col items-center justify-center p-4 rounded-xl gap-2 hover:border-cyan-400/50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music-2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                 <span class="text-xs">TikTok</span>
@@ -123,39 +93,8 @@
             <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
             Buidlers Bolivia © 2025
         </footer>
-
     </div>
 
-    <script>
-        lucide.createIcons();
-
-        // Script para el efecto tilt 3D (Solo en PC, en móvil se ve la animación de flote)
-        const container = document.getElementById('logo-container');
-        const card = document.getElementById('logo-card');
-
-        container.addEventListener('mousemove', (e) => {
-            // Pausar animación de flote cuando interactúas
-            card.classList.remove('animate-float');
-            
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = ((y - centerY) / centerY) * -20;
-            const rotateY = ((x - centerX) / centerX) * 20;
-
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-        });
-
-        container.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-            // Reactivar animación de flote suavemente
-            setTimeout(() => {
-                card.classList.add('animate-float');
-            }, 500);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
