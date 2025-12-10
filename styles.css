@@ -1,0 +1,37 @@
+/* Configuraciones 3D */
+.perspective-1000 { 
+    perspective: 1000px; 
+}
+.preserve-3d { 
+    transform-style: preserve-3d; 
+}
+
+/* Fondo Global */
+body { 
+    background-color: black; 
+    color: white; 
+}
+
+/* Animación de Flote (Levitación) */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Estilo de los botones Glassmorphism */
+.glass-btn {
+    background: rgba(23, 23, 23, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-btn:hover {
+    background: rgba(40, 40, 40, 0.8);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
